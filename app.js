@@ -24,3 +24,27 @@ addTodo.addEventListener('submit', e => {
     createTodo(todo);
 
 });
+
+//to delete tasks
+todoList.addEventListener('click', e => {
+    if(e.target.classList.contains('delete')){
+        e.target.parentElement.remove();
+    }
+});
+const filterTodos = e => {
+
+    Array.from(todoList.children)
+    .filter((todo) =>!todo.textContent.includes(e))
+    .forEach((todo) => todo.classList.add('filtered'));
+
+    Array.from(todoList.children)
+    .filter((todo) => todo.textContent.includes(e))
+    .forEach((todo) => todo.classList.remove('filtered'));
+
+};
+
+//for live searching and filtering
+search.addEventListener('keyup', () => {
+    const key = search.value.trim();
+    filterTodos(key);
+});

@@ -19,6 +19,6 @@ body{
   .delete{
     cursor: pointer;
   }
-  /* .filtered {
+  .filtered {
     display: none !important;
-  } */
+  }
