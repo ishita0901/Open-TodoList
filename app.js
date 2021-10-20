@@ -19,10 +19,11 @@ const createTodo = todo => {
 //to create new tasks
 addTodo.addEventListener('submit', e => {
     e.preventDefault();
-
-    const todo = addTodo.add.value;
-    createTodo(todo);
-
+    
+    const todo = addTodo.add.value.trim();
+    if(todo.length){
+        createTodo(todo);
+    }
 });
 
 //to delete tasks
